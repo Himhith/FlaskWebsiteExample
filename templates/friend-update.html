@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %} Friends {% endblock %}
+{% block content %}
+     <div class="container">
+         <h1> Update a friend    </h1>
+         <br>
+         <form  action="/friend-update/{{ friend_to_update.id }}" method="POST">
+             <h5>NAME: {{ friend_to_update.name }} ADDED: {{ friend_to_update.date_created }}</h5>
+             <input type="text" placeholder="Name" name="name">
+             <input type="submit" value="Update Name" class="btn btn-secondary">
+         </form>
+
+     </div>
+
+{% endblock %}

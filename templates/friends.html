@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %} Friends {% endblock %}
+{% block content %}
+     <div class="container">
+         <h1>Friends WEBPAGE   </h1>
+         <br>
+         <form  action="/friends" method="POST">
+             <input type="text" placeholder="Name" name="name">
+             <input type="submit" value="Add Name" class="btn btn-secondary">
+         </form>
+         {% for friend in friends_list %}
+         <h5>
+             NAME: {{ friend.name }} ADDED: {{ friend.date_created }}
+             <a href="/friend-update/{{friend.id}}" class="btn btn-outline-secondary btn-sm">UPDATE</a>
+             <a href="/friend-delete/{{friend.id}}" class="btn btn-outline-danger btn-sm">DELETE</a>
+         </h5>
+         {% endfor %}
+     </div>
+
+{% endblock %}

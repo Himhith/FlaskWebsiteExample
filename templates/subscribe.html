@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %} Subscribe {% endblock %}
+{% block content %}
+    <div class="container">
+     <h1>Welcome to my subscribe  webpage! :)  </h1>
+                <br><br>
+        {% if error_statement %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <strong>{{ error_statement }} :( f</strong> You should check in on some of those fields below.
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endif %}
+<!--    <form action="/sign-up" method="POST">-->
+        <form action="{{url_for('sign-up')}}" method="POST">
+          <div class="mb-3">
+            first name <input type="text" class="form-control-mb-3" name="first_name" placeholder="first name">
+          </div>
+            <div class="mb-3">
+            first name <input type="text" class="form-control-mb-3" name="last_name"  placeholder="last name">
+            </div>
+            <div class="mb-3">
+            email    <input type="email" class="form-control-mb-3" name="email" placeholder="email">
+            </div>
+          <button type="submit" class="btn btn-dark">Submit</button>
+        </form>
+    </div>
+
+
+{% endblock %}
