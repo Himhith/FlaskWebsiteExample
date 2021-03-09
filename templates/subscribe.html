@@ -2,9 +2,14 @@
 {% block title %} Subscribe {% endblock %}
 {% block content %}
     <div class="container">
-     <h1>Welcome to my subscribe  webpage! :)  </h1>
-                <br><br>
-        {% if error_statement %}
+        <div class="card" >
+          <div class="card-body ">
+            <h2 class="card-title"> Email service example</h2>
+            <p class="card-text">This is a simple email host example. Fill out the form with your email adress. Email
+                will be send to you.
+             </p>
+           <hr>
+            {% if error_statement %}
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
           <strong>{{ error_statement }} :( f</strong> You should check in on some of those fields below.
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -23,6 +28,12 @@
             </div>
           <button type="submit" class="btn btn-dark">Submit</button>
         </form>
+          </div>
+
+         </div>
+
+
+
     </div>
 
 

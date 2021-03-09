@@ -2,10 +2,9 @@
 {% block title %} Sign up!  {% endblock %}
 {% block content %}
     <div class="container">
-     <h1>You have signed up :O <3</h1>
-        <ul>
-            <li> {{last_name}}</li>
-        </ul>
-        <br><br>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong> Thank you, {{first_name}} {{last_name}}.</strong> Your has been send to you. Should problem arise check your spam.
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
     </div>
 {% endblock %}

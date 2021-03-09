@@ -2,19 +2,29 @@
 {% block title %} Friends {% endblock %}
 {% block content %}
      <div class="container">
-         <h1>Friends WEBPAGE   </h1>
-         <br>
-         <form  action="/friends" method="POST">
+         <div class="card" >
+          <div class="card-body ">
+            <h2 class="card-title">Database example</h2>
+            <p class="card-text"> A Simple Databes demonstaration. You can add, delete and update elements. Database made with
+                SQLite. </p>
+              <hr>
+              <form  action="/friends" method="POST">
              <input type="text" placeholder="Name" name="name">
              <input type="submit" value="Add Name" class="btn btn-secondary">
-         </form>
+              </form>
+              <br>
          {% for friend in friends_list %}
-         <h5>
+         <ul>
+             <li>
              NAME: {{ friend.name }} ADDED: {{ friend.date_created }}
-             <a href="/friend-update/{{friend.id}}" class="btn btn-outline-secondary btn-sm">UPDATE</a>
-             <a href="/friend-delete/{{friend.id}}" class="btn btn-outline-danger btn-sm">DELETE</a>
-         </h5>
+             <a href="/friend-update/{{friend.id}}" class="btn btn-outline-secondary btn-sm float-end m-1">UPDATE</a>
+             <a href="/friend-delete/{{friend.id}}" class="float-end btn btn-outline-danger btn-sm m-1">DELETE </a>
+             </li>
+         </ul>
          {% endfor %}
+          </div>
+         </div>
+
      </div>
 
 {% endblock %}

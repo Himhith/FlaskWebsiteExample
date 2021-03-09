@@ -2,30 +2,51 @@
 {% block title %} Home {% endblock %}
 {% block content %}
      <div class="container">
-         <h1>Welcome to my webpage! :)  </h1>
-         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="{{ url_for('static', filename='images/20200727_102815.jpg') }}" class="d-block w-100" alt="20200727_102815.jpg">
-
-            </div>
-            <div class="carousel-item">
-              <img src="{{ url_for('static', filename='images/20200727_112507.jpg') }}" class="d-block w-100" alt="20200727_112507.jpg">
-            </div>
-            <div class="carousel-item">
-              <img src="{{ url_for('static', filename='images/20200727_112509.jpg') }}" class="d-block w-100" alt="20200727_112509.jpg">
-            </div>
+<!--         <h1>Welcome to my webpage! :)  </h1>-->
+         <div class="card" >
+          <div class="card-body ">
+            <h2 class="card-title">Welcome to example Flask Webpage</h2>
+            <p class="card-text">This is a simple dummy webpage made with Flask framework backend. On each side there is something presented.
+            If you want know more about it's Author click <a  href="{{ url_for('about')}}">About</a>. </p>
           </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"  data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"  data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
+         </div>
+             <br>
+         <div class="card" >
+          <div class="card-body ">
+            <h4 class="card-title">Simple image slider</h4>
+            <p class="card-text">Below a simple implementation of image slider.  Images are provied via Heroku server. As to date they work.
+            but they will propably be uploaded via AWS in the future as in my <a href="https://micogo.herokuapp.com/home/">DJANGO app</a>. </p>
+              <br>
+               <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <strong> Image host is in test </strong> <br>Pictures might not load properley due to tests on image host.
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
-
-
+              {% if not error_statement %}
+             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="{{ url_for('static', filename='images/20200727_102815.jpg') }}" class="d-block w-100" alt="20200727_102815.jpg">
+                </div>
+                <div class="carousel-item">
+                  <img src="{{ url_for('static', filename='images/20200727_112507.jpg') }}" class="d-block w-100" alt="20200727_112507.jpg">
+                </div>
+                <div class="carousel-item">
+                  <img src="{{ url_for('static', filename='images/20200727_112509.jpg') }}" class="d-block w-100" alt="20200727_112509.jpg">
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"  data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"  data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+            </div>
+             {% else %}
+             somthing went wrong
+             {% endif %}
+             </div>
      </div>
 {% endblock %}

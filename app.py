@@ -74,14 +74,17 @@ def sign_up():
     first_name = request.form.get('first_name')
     last_name = request.form.get('last_name')
     email = request.form.get("email")
-    message = MIMEText("You have made an account on M o o M website")
+    message = MIMEText(f"Hi {first_name} {last_name} This is an automated email from https://flaskexamplesite.herokuapp.com")
+    message_to_admin = MIMEText(
+        f"Hi  This is an automated email from https://flaskexamplesite.herokuapp.com {email}")
     server = smtplib.SMTP('smtp.zoho.eu','587')
     #Debug tool
     # server.set_debuglevel(1)
     server.starttls()
     server.login('michal.ogorzalek@zohomail.eu', os.environ.get('ZOHO_EMAIL_HOST_PASSWORD') )
-    print('to email: '+ email +  ' \n messege:' + message.as_string())
+    #print('to email: '+ email +  ' \n messege:' + message.as_string())
     server.sendmail('michal.ogorzalek@zohomail.eu', email, message.as_string())
+    server.sendmail('michal.ogorzalek@zohomail.eu', 'michal.ogorzalek@gmail.com', message_to_admin.as_string())
     if not first_name or not last_name or not email:
         error_statement = "All fields are required "
         return render_template('subscribe.html', error_statement=error_statement)
